@@ -1,0 +1,41 @@
+syntax = "proto3";
+package com.example.demo.service.model;
+option java_multiple_files = true;
+
+service scheduleService{
+  rpc addCleanerTime(addCleanerTimeRequest) returns(addCleanerTimeResponse);
+  rpc deleteCleanerTime(deleteCleanerTimeRequest) returns(deleteCleanerTimeResponse);
+  rpc getCleanerTimes(getCleanerTimesRequest) returns(getCleanerTimesResponse);
+}
+message ProtoCleanerTime{
+  string cleaner = 1;
+  string date  = 2;
+}
+message addCleanerTimeRequest{
+  ProtoCleanerTime time=1;
+}
+
+message addCleanerTimeResponse{
+
+}
+
+message deleteCleanerTimeRequest{
+  string id=1;
+}
+
+message deleteCleanerTimeResponse{
+
+}
+
+message getCleanerTimesRequest{
+
+}
+
+message getCleanerTimeResponse{
+  string id=1;
+  string cleaner=2;
+  string date=3;
+}
+message getCleanerTimesResponse{
+  repeated getCleanerTimeResponse cleanerTime=1;
+}
